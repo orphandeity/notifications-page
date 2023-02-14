@@ -32,7 +32,7 @@ function App() {
             Mark all as read
           </button>
         </header>
-        <section className="flex flex-col gap-2 text-sm desktop:text-base">
+        <div className="flex flex-col gap-3 text-sm desktop:text-base">
           <article
             className={clsx(
               'flex items-start gap-4 rounded-lg p-4',
@@ -50,17 +50,17 @@ function App() {
             />
             <div className="flex flex-col">
               <div className="flex gap-1">
-                <h2>
+                <h2 className="relative">
                   <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Mark Webber
                   </span>
                   <span className="pr-1 text-_dark-grayish-blue">
                     reacted to your recent post
                   </span>
-                  <span className="relative cursor-pointer font-bold text-_dark-grayish-blue hover:text-_blue">
+                  <span className="cursor-pointer font-bold text-_dark-grayish-blue hover:text-_blue">
                     My first tournament today!
                     {!allRead && (
-                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                      <span className="absolute bottom-1 h-2 w-2 translate-x-1 rounded-full bg-_red"></span>
                     )}
                   </span>
                 </h2>
@@ -86,14 +86,14 @@ function App() {
             />
             <div className="flex flex-col">
               <div className="flex gap-1">
-                <h2>
+                <h2 className="relative">
                   <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Angela Gray
                   </span>
                   <span className="relative text-_dark-grayish-blue">
                     followed you
                     {!allRead && (
-                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                      <span className="absolute bottom-1 h-2 w-2 translate-x-1 rounded-full bg-_red"></span>
                     )}
                   </span>
                 </h2>
@@ -119,7 +119,7 @@ function App() {
             />
             <div className="flex flex-col">
               <div className="flex gap-1">
-                <h2>
+                <h2 className="relative">
                   <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Jacob Thompson
                   </span>
@@ -129,7 +129,7 @@ function App() {
                   <span className="relative cursor-pointer font-bold text-_blue">
                     Chess Club
                     {!allRead && (
-                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                      <span className="absolute bottom-1 h-2 w-2 translate-x-1 rounded-full bg-_red"></span>
                     )}
                   </span>
                 </h2>
@@ -249,7 +249,7 @@ function App() {
               <p className="text-_grayish-blue">2 weeks ago</p>
             </div>
           </article>
-        </section>
+        </div>
       </main>
     </div>
   );
