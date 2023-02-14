@@ -1,25 +1,228 @@
+import MarkWebber from './assets/avatar-mark-webber.webp';
+import AngelaGray from './assets/avatar-angela-gray.webp';
+import JacobThompson from './assets/avatar-jacob-thompson.webp';
+import RizkyHasanuddin from './assets/avatar-rizky-hasanuddin.webp';
+import KimberlySmith from './assets/avatar-kimberly-smith.webp';
+import NathanPeterson from './assets/avatar-nathan-peterson.webp';
+import AnnaKim from './assets/avatar-anna-kim.webp';
+import ChessClub from './assets/image-chess.webp';
+
 function App() {
   return (
-    <main>
-      <div>Notifications 3 Mark all as read</div>
-      <div>
-        Mark Webber reacted to your recent post My first tournament today! 1m
-        ago
-      </div>
-      <div>Angela Gray followed you 5m ago</div>
-      <div>Jacob Thompson has joined your group Chess Club 1 day ago</div>
-      <div>
-        Rizky Hasanuddin sent you a private message 5 days ago Hello, thanks for
-        setting up the Chess Club. I've been a member for a few weeks now and
-        I'm already having lots of fun and improving my game.
-      </div>
-      <div>Kimberly Smith commented on your picture 1 week ago</div>
-      <div>
-        Nathan Peterson reacted to your recent post 5 end-game strategies to
-        increase your win rate 2 weeks ago
-      </div>
-      <div>Anna Kim left the group Chess Club 2 weeks ago</div>
-    </main>
+    <div className="grid min-h-screen place-content-center">
+      <main className="max-w-screen-mobile rounded-lg bg-white p-4 shadow-xl desktop:max-w-[720px] desktop:p-8">
+        <header className="mb-8 flex items-center justify-between">
+          <div className="flex gap-2 desktop:gap-4">
+            <h1 className="text-xl font-bold desktop:text-2xl">
+              Notifications
+            </h1>
+            <div className="grid place-content-center rounded-md bg-_blue px-3 text-white">
+              3
+            </div>
+          </div>
+
+          <button className="text-sm text-_dark-grayish-blue desktop:text-base">
+            Mark all as read
+          </button>
+        </header>
+        <section className="flex flex-col gap-2 text-sm desktop:text-base">
+          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+            <img
+              src={MarkWebber}
+              alt="Mark Webber"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <div className="flex gap-1">
+                <h2>
+                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                    Mark Webber
+                  </span>
+                  <span className="pr-1 text-_dark-grayish-blue">
+                    reacted to your recent post
+                  </span>
+                  <span className="relative font-bold text-_dark-grayish-blue">
+                    My first tournament today!
+                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                  </span>
+                </h2>
+              </div>
+              <p className="text-_grayish-blue">1m ago</p>
+            </div>
+          </article>
+
+          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+            <img
+              src={AngelaGray}
+              alt="Angela Gray"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <div className="flex gap-1">
+                <h2>
+                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                    Angela Gray
+                  </span>
+                  <span className="relative text-_dark-grayish-blue">
+                    followed you
+                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                  </span>
+                </h2>
+              </div>
+              <p className="text-_grayish-blue">5m ago</p>
+            </div>
+          </article>
+
+          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+            <img
+              src={JacobThompson}
+              alt="Jacob Thompson"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <div className="flex gap-1">
+                <h2>
+                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                    Jacob Thompson
+                  </span>
+                  <span className="pr-1 text-_dark-grayish-blue">
+                    has joined your group
+                  </span>
+                  <span className="relative font-bold text-_blue">
+                    Chess Club
+                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                  </span>
+                </h2>
+              </div>
+              <p className="text-_grayish-blue">1 day ago</p>
+            </div>
+          </article>
+
+          <article className="flex items-start gap-4 p-4">
+            <img
+              src={RizkyHasanuddin}
+              alt="Rizky Hasanuddin"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <div className="flex gap-1">
+                <h2>
+                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                    Rizky Hasanuddin
+                  </span>
+                  <span className="pr-1 text-_dark-grayish-blue">
+                    sent you a private message
+                  </span>
+                </h2>
+              </div>
+              <p className="text-_grayish-blue">5 days ago</p>
+
+              <aside className="mt-4 rounded-lg border border-_light-grayish-blue-2 px-4 py-2 shadow-sm shadow-_light-grayish-blue-1/30">
+                <p className="text-_dark-grayish-blue">
+                  Hello, thanks for setting up the Chess Club. I've been a
+                  member for a few weeks now and I'm already having lots of fun
+                  and improving my game.
+                </p>
+              </aside>
+            </div>
+          </article>
+
+          <article className="relative flex items-start gap-4 p-4">
+            <img
+              src={KimberlySmith}
+              alt="Kimberly Smith"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <h2>
+                <span className="whitespace-nowrap pr-1 font-bold text-_very-dark-blue">
+                  Kimberly Smith
+                </span>
+                <span className="pr-1 text-_dark-grayish-blue">
+                  commented on your picture
+                </span>
+              </h2>
+              {/* <h2 className="text-_dark-grayish-blue">
+                <a
+                  href="#"
+                  className="whitespace-nowrap font-bold text-_very-dark-blue"
+                >
+                  Kimberly Smith
+                </a>
+                commented on your picture
+              </h2> */}
+              <p className="text-_grayish-blue">1 week ago</p>
+            </div>
+            <img
+              src={ChessClub}
+              height={48}
+              width={48}
+              alt="woman playing a game of chess"
+              className=""
+            />
+          </article>
+
+          <article className="flex items-start gap-4 p-4">
+            <img
+              src={NathanPeterson}
+              alt="Nathan Peterson"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+
+            <div className="flex flex-col">
+              <h2>
+                <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  Nathan Peterson
+                </span>
+                <span className="pr-1 text-_dark-grayish-blue">
+                  reacted to your recent post
+                </span>
+                <span className="break- font-bold text-_dark-grayish-blue">
+                  5 end-game strategies to increase your win rate
+                </span>
+              </h2>
+              <p className="text-_grayish-blue">2 weeks ago</p>
+            </div>
+          </article>
+
+          <article className="flex items-start gap-4 p-4">
+            <img
+              src={AnnaKim}
+              alt="Anna Kim"
+              height={48}
+              width={48}
+              className="rounded-full"
+            />
+            <div className="flex flex-col">
+              <div className="flex gap-1">
+                <h2>
+                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                    Anna Kim
+                  </span>
+                  <span className="pr-1 text-_dark-grayish-blue">
+                    left the group
+                  </span>
+                  <span className="font-bold text-_blue">Chess Club</span>
+                </h2>
+              </div>
+              <p className="text-_grayish-blue">2 weeks ago</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
   );
 }
 
