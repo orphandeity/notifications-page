@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import clsx from 'clsx';
 import MarkWebber from './assets/avatar-mark-webber.webp';
 import AngelaGray from './assets/avatar-angela-gray.webp';
 import JacobThompson from './assets/avatar-jacob-thompson.webp';
@@ -8,6 +10,8 @@ import AnnaKim from './assets/avatar-anna-kim.webp';
 import ChessClub from './assets/image-chess.webp';
 
 function App() {
+  const [allRead, setAllRead] = useState(false);
+
   return (
     <div className="grid min-h-screen place-content-center">
       <main className="max-w-screen-mobile rounded-lg bg-white p-4 shadow-xl desktop:max-w-[720px] desktop:p-8">
@@ -17,16 +21,26 @@ function App() {
               Notifications
             </h1>
             <div className="grid place-content-center rounded-md bg-_blue px-3 text-white">
-              3
+              {allRead ? '0' : '3'}
             </div>
           </div>
 
-          <button className="text-sm text-_dark-grayish-blue desktop:text-base">
+          <button
+            onClick={() => setAllRead(true)}
+            className="text-sm text-_dark-grayish-blue hover:text-_blue desktop:text-base"
+          >
             Mark all as read
           </button>
         </header>
         <section className="flex flex-col gap-2 text-sm desktop:text-base">
-          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+          <article
+            className={clsx(
+              'flex items-start gap-4 rounded-lg p-4',
+              allRead
+                ? 'bg-white'
+                : 'bg-_very-light-grayish-blue shadow shadow-_light-grayish-blue-1/50'
+            )}
+          >
             <img
               src={MarkWebber}
               alt="Mark Webber"
@@ -37,15 +51,17 @@ function App() {
             <div className="flex flex-col">
               <div className="flex gap-1">
                 <h2>
-                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Mark Webber
                   </span>
                   <span className="pr-1 text-_dark-grayish-blue">
                     reacted to your recent post
                   </span>
-                  <span className="relative font-bold text-_dark-grayish-blue">
+                  <span className="relative cursor-pointer font-bold text-_dark-grayish-blue hover:text-_blue">
                     My first tournament today!
-                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    {!allRead && (
+                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    )}
                   </span>
                 </h2>
               </div>
@@ -53,7 +69,14 @@ function App() {
             </div>
           </article>
 
-          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+          <article
+            className={clsx(
+              'flex items-start gap-4 rounded-lg p-4',
+              allRead
+                ? 'bg-white'
+                : 'bg-_very-light-grayish-blue shadow shadow-_light-grayish-blue-1/50'
+            )}
+          >
             <img
               src={AngelaGray}
               alt="Angela Gray"
@@ -64,12 +87,14 @@ function App() {
             <div className="flex flex-col">
               <div className="flex gap-1">
                 <h2>
-                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Angela Gray
                   </span>
                   <span className="relative text-_dark-grayish-blue">
                     followed you
-                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    {!allRead && (
+                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    )}
                   </span>
                 </h2>
               </div>
@@ -77,7 +102,14 @@ function App() {
             </div>
           </article>
 
-          <article className="flex items-start gap-4 rounded-lg bg-_very-light-grayish-blue p-4 shadow shadow-_light-grayish-blue-1/50">
+          <article
+            className={clsx(
+              'flex items-start gap-4 rounded-lg p-4',
+              allRead
+                ? 'bg-white'
+                : 'bg-_very-light-grayish-blue shadow shadow-_light-grayish-blue-1/50'
+            )}
+          >
             <img
               src={JacobThompson}
               alt="Jacob Thompson"
@@ -88,15 +120,17 @@ function App() {
             <div className="flex flex-col">
               <div className="flex gap-1">
                 <h2>
-                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Jacob Thompson
                   </span>
                   <span className="pr-1 text-_dark-grayish-blue">
                     has joined your group
                   </span>
-                  <span className="relative font-bold text-_blue">
+                  <span className="relative cursor-pointer font-bold text-_blue">
                     Chess Club
-                    <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    {!allRead && (
+                      <div className="absolute -right-4 bottom-1 h-2 w-2 rounded-full bg-_red" />
+                    )}
                   </span>
                 </h2>
               </div>
@@ -115,7 +149,7 @@ function App() {
             <div className="flex flex-col">
               <div className="flex gap-1">
                 <h2>
-                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Rizky Hasanuddin
                   </span>
                   <span className="pr-1 text-_dark-grayish-blue">
@@ -125,7 +159,7 @@ function App() {
               </div>
               <p className="text-_grayish-blue">5 days ago</p>
 
-              <aside className="mt-4 rounded-lg border border-_light-grayish-blue-2 px-4 py-2 shadow-sm shadow-_light-grayish-blue-1/30">
+              <aside className="mt-4 cursor-pointer rounded-lg border border-_light-grayish-blue-2 px-4 py-2 shadow-sm shadow-_light-grayish-blue-1/30 hover:bg-_light-grayish-blue-1">
                 <p className="text-_dark-grayish-blue">
                   Hello, thanks for setting up the Chess Club. I've been a
                   member for a few weeks now and I'm already having lots of fun
@@ -135,40 +169,33 @@ function App() {
             </div>
           </article>
 
-          <article className="relative flex items-start gap-4 p-4">
-            <img
-              src={KimberlySmith}
-              alt="Kimberly Smith"
-              height={48}
-              width={48}
-              className="rounded-full"
-            />
-            <div className="flex flex-col">
-              <h2>
-                <span className="whitespace-nowrap pr-1 font-bold text-_very-dark-blue">
-                  Kimberly Smith
-                </span>
-                <span className="pr-1 text-_dark-grayish-blue">
-                  commented on your picture
-                </span>
-              </h2>
-              {/* <h2 className="text-_dark-grayish-blue">
-                <a
-                  href="#"
-                  className="whitespace-nowrap font-bold text-_very-dark-blue"
-                >
-                  Kimberly Smith
-                </a>
-                commented on your picture
-              </h2> */}
-              <p className="text-_grayish-blue">1 week ago</p>
+          <article className="flex justify-between p-4">
+            <div className="flex items-start gap-4">
+              <img
+                src={KimberlySmith}
+                alt="Kimberly Smith"
+                height={48}
+                width={48}
+                className="rounded-full"
+              />
+              <div className="flex flex-col">
+                <h2>
+                  <span className="cursor-pointer whitespace-nowrap pr-1 font-bold text-_very-dark-blue hover:text-_blue">
+                    Kimberly Smith
+                  </span>
+                  <span className="pr-1 text-_dark-grayish-blue">
+                    commented on your picture
+                  </span>
+                </h2>
+                <p className="text-_grayish-blue">1 week ago</p>
+              </div>
             </div>
             <img
               src={ChessClub}
               height={48}
               width={48}
               alt="woman playing a game of chess"
-              className=""
+              className="box-content h-10 w-10 cursor-pointer rounded-lg border-_light-grayish-blue-2 hover:border-4"
             />
           </article>
 
@@ -183,13 +210,13 @@ function App() {
 
             <div className="flex flex-col">
               <h2>
-                <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                   Nathan Peterson
                 </span>
                 <span className="pr-1 text-_dark-grayish-blue">
                   reacted to your recent post
                 </span>
-                <span className="break- font-bold text-_dark-grayish-blue">
+                <span className="break- cursor-pointer font-bold text-_dark-grayish-blue hover:text-_blue">
                   5 end-game strategies to increase your win rate
                 </span>
               </h2>
@@ -208,13 +235,15 @@ function App() {
             <div className="flex flex-col">
               <div className="flex gap-1">
                 <h2>
-                  <span className="flex-none pr-1 font-bold text-_very-dark-blue">
+                  <span className="flex-none cursor-pointer pr-1 font-bold text-_very-dark-blue hover:text-_blue">
                     Anna Kim
                   </span>
                   <span className="pr-1 text-_dark-grayish-blue">
                     left the group
                   </span>
-                  <span className="font-bold text-_blue">Chess Club</span>
+                  <span className="cursor-pointer font-bold text-_blue">
+                    Chess Club
+                  </span>
                 </h2>
               </div>
               <p className="text-_grayish-blue">2 weeks ago</p>
